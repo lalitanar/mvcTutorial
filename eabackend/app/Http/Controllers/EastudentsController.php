@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\EastudentsResource; //Add this line
 use App\Models\eastudents;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator; //Add this line
+use Illuminate\Support\Facades\Log; //Add this line
 
 class EastudentsController extends Controller
 {
@@ -14,7 +17,11 @@ class EastudentsController extends Controller
      */
     public function index()
     {
-        //
+        // Fetch Data
+        $eastud = eastudents:: latest()->get();
+
+        // Return Message and Data
+        return response()->json(['EAStudents fetch sucessfully', EastudentsResource::collection($eastud)]);
     }
 
     /**
