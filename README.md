@@ -44,7 +44,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - `cd eabackend`
    - `php artisan serve`
 
-## Backend API (VSCode)
+## Backend API (VSCode)[^2]
 ### Project configuration and preparation for APIs
 1. Start MySQL Server
 2. MySQL DB configuration
@@ -272,9 +272,9 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - DELETE api/eastudents/{eastudent}
 
 
-## Backend API Authentication (Authentication Sanctum)
+## Backend API Authentication (Authentication Sanctum)[^3]
 
-### JSON Web Tokens Authentication[^2]
+### JSON Web Tokens Authentication[^4]
 ![JWT](https://miro.medium.com/max/2188/1*SSXUQJ1dWjiUrDoKaaiGLA.png)
 
 ### Installation
@@ -466,7 +466,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
        });
        ```
      - If APIs do not require the authentication, move the Route to be outside the middleware 
-       ## Middleware[^3]
+       ## Middleware[^5]
 	![Middleware](https://miro.medium.com/max/1400/1*Xta5DnrkSDL3AN_nNLySUw.jpeg)
 	_
 
@@ -476,11 +476,14 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - Set Authorization
      -  Type: Bearer Token
      -  Token: {{TOKEN}}  
-   - Do not add the test script [^1]
+   - Do not add the test script
    
    
 #### References
 [^1]: Danny Huang, Laravel Controllers 101, https://medium.com/@dannyhuang_75970/learning-laravel-controllers-101-ad28d2bb5569
-[^2]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
-[^3]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
+[^2]: ZeekerCode, Laravel 9 REST API crud tutotrial (พื้นฐาน), https://youtu.be/2TmjevB2l_I
+[^3]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4
+[^4]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
+[^5]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
+
       
