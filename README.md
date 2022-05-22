@@ -38,7 +38,8 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - `cd eabackend`
    - `php artisan serve`
 
-### Backend API (VSCode)
+## Backend API (VSCode)
+### Project configuration and preparation for APIs
 1. Start MySQL Server
 2. MySQL DB configuration
    ```php
@@ -96,7 +97,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
     }
    ```
 9. Create Controller file in app/Http/Controllers
-   - `php artisan make:controller GdstudentsController --api --model=gdstudents`
+   - `php artisan make:controller EastudentsController --api --model=eastudents`
 10. Check current routes' list
    - `php artisan route:list`
    ```
@@ -116,3 +117,94 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    });
 
    ```
+11. Update routes/api.php   
+    ```php
+    use App\Http\Controllers\GdstudentsController; // Add this line
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Route;
+    
+    Route::resource('eastudents', EastudentsController::class); //Add this line
+
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+       return $request->user();
+    });
+    ```
+    - Check route list again 
+      - `php artisan route:list`
+      - eastudents APIs will be created
+      
+### Create eastudents APIs
+1. Prepare library
+   ```php
+   namespace App\Http\Controllers;
+
+   use App\Http\Resources\EastudentsResource; //Add this line
+   use App\Models\eastudents; //Add this line
+   use Illuminate\Http\Request;
+   use Illuminate\Support\Facades\Validator; //Add this line
+   use Illuminate\Support\Facades\Log; //Add this line
+   ```
+2. Show all eastudents
+   ```php
+   public function index()
+    {
+        // Fetch Data
+        $gdstud = gdstudents:: latest()->get();
+
+        // Return Message and Data
+        return response()->json(['GDStudents fetch sucessfully', GdstudentsResource::collection($gdstud)]);
+    }
+   ```
+   - Postman: GET METHOD: http://127.0.0.1:8000/api/gdstudents
+3. Show a eastudent
+   ```php
+   public function show(gdstudents $gdstudent)
+    {
+        //Return data
+        //Log::channel('stderr')->info($gdstudent);
+        return response()->json($gdstudent);
+    }
+   ```
+   - Postman: GET METHOD : http://127.0.0.1:8000/api/gdstudents/3
+   
+4. Create a eastudent
+   ```php
+   public function store(Request $request)
+    {
+        //check validator
+        $validator = Validator::make($request->all(), [
+            'firstName' => 'required|string|max:50',
+            'lastName' => 'required|string|max:50',
+            'major' => 'required|string|max:10',
+        ]);
+        
+        //If validator fail
+        if($validator->fails()){
+            //Return validator error message
+            return response()->json($validator->errors());
+        }
+        
+        //Created data
+        $gdstd = gdstudents::create([
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'major' => $request->major
+        ]);
+
+        //Return message and data
+        return response()->json(['gdstudetns created sucessfully', new GdstudentsResource($gdstd)]);
+             
+    }
+   ```
+   - Postman: POST METHOD: http://127.0.0.1:8000/api/gdstudents
+     - Body
+       ```json
+       {
+         "firstName" : "Bob",
+         "lastName" : "Cat",
+         "major" : "EGCO"
+       }
+       ```
+6. Update a eastudent
+7. Delete a eastudent
+
