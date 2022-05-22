@@ -119,7 +119,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    ```
 11. Update routes/api.php   
     ```php
-    use App\Http\Controllers\GdstudentsController; // Add this line
+    use App\Http\Controllers\EastudentsController; // Add this line
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
     
@@ -254,7 +254,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    
 8. Delete a eastudent
    ```php
-   public function destroy(gdstudents $eastudent)
+   public function destroy(eastudents $eastudent)
     {
         //Delete data
         $eastudent->delete();
@@ -370,10 +370,10 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
       }
       ```
     - Postman Test script
-      ```js
+      ```php
       	if(pm.response.to.have.status(200)){
-    	  var jsonData = JSON.parse(responseBody);
-    	  pm.environment.set("TOKEN", \backtick${jsonData.token_type} ${jsonData.token}\backtick);
+    	   var jsonData = JSON.parse(responseBody);
+    	   pm.environment.set("TOKEN", `${jsonData.token_type} ${jsonData.token}`);
 	}
       ```
     - Postman: POST METHOD: {{URL}}/register
