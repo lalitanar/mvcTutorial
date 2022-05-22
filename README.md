@@ -1,6 +1,6 @@
 # mvcTutorial
 
-## Laravel Archithecture
+## Laravel Archithecture[^1]
 
 ![Laravel MVC Architecture](https://miro.medium.com/max/1400/1*Vu2ThQPxr72UEOP0LMo4hA.jpeg)
 
@@ -274,7 +274,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
 
 ## Backend API Authentication (Authentication Sanctum)
 
-### JSON Web Tokens Authentication
+### JSON Web Tokens Authentication[^2]
 ![JWT](https://miro.medium.com/max/2188/1*SSXUQJ1dWjiUrDoKaaiGLA.png)
 
 ### Installation
@@ -466,8 +466,9 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
        });
        ```
      - If APIs do not require the authentication, move the Route to be outside the middleware 
-       ## Middleware
-	![Middleware](https://miro.medium.com/max/1358/1*4nJJgPOnlJwD6s-7ygqgTg.jpeg)
+       ## Middleware[^3]
+	![Middleware](https://miro.medium.com/max/1400/1*Xta5DnrkSDL3AN_nNLySUw.jpeg)
+	_
 
 9. Call user API
    - Postman: GET METHOD: {{URL}}/user
@@ -475,10 +476,11 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - Set Authorization
      -  Type: Bearer Token
      -  Token: {{TOKEN}}  
-   - Do not add the test script [^1][^2]
+   - Do not add the test script [^1]
    
    
 #### References
-[^1]: Reference1.
-[^2]: Every new line should be prefixed with 2 spaces.  
-      This allows you to have a footnote with multiple lines.
+[^1]: Danny Huang, Laravel Controllers 101, https://medium.com/@dannyhuang_75970/learning-laravel-controllers-101-ad28d2bb5569
+[^2]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
+[^3]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
+      
