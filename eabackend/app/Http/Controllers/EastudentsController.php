@@ -73,12 +73,34 @@ class EastudentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\eastudents  $eastudents
+     * @param  \App\Models\eastudents  $eastudent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, eastudents $eastudents)
+    public function update(Request $request, eastudents $eastudent)
     {
-        //
+        //check validator
+        $validator = Validator::make($request->all(), [
+            'firstName' => 'required|string|max:50',
+            'lastName' => 'string|max:50|nullable',
+            'major' => 'required|string|max:10',
+            'status' => 'numeric|nullable'
+        ]);
+        //If validator fail
+        if($validator->fails()){
+            //Return validator error message
+            return response()->json($validator->errors());
+        }
+        //Set data
+        $eastudent->firstName = $request->firstName;
+        $eastudent->lastName = $request->lastName;
+        $eastudent->major = $request->major;
+        $eastudent->status = $request->status;
+
+        //Update data
+        $eastudent->save();
+
+        //Return message and data
+        return response()->json(['eastudents updated sucessfully', new EastudentsResource($eastudent)]);
     }
 
     /**
