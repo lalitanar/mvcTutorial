@@ -157,19 +157,8 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    ```
    - Postman: GET METHOD: http://127.0.0.1:8000/api/eastudents
    - GET|HEAD api/eastudents
-3. Show a eastudent
-   ```php
-   public function show(eastudents $eastudent)
-    {
-        //Return data
-        //Log::channel('stderr')->info($eastudent);
-        return response()->json($eastudent);
-    }
-   ```
-   - Postman: GET METHOD : http://127.0.0.1:8000/api/eastudents/3
-   - GET|HEAD api/eastudents/{eastudent}
    
-4. Create a eastudent
+3. Create a eastudent
    ```php
    public function store(Request $request)
     {
@@ -208,8 +197,19 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
        }
        ```
    - POST api/eastudents
-   
-6. Update a eastudent
+4. Show a eastudent
+   ```php
+   public function show(eastudents $eastudent)
+    {
+        //Return data
+        //Log::channel('stderr')->info($eastudent);
+        return response()->json($eastudent);
+    }
+   ```
+   - Postman: GET METHOD : http://127.0.0.1:8000/api/eastudents/3
+   - GET|HEAD api/eastudents/{eastudent}  
+   - 
+5. Update a eastudent
    ```php
    public function update(Request $request, eastudents $eastudent)
     {
@@ -252,7 +252,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
      ```
    - PUT|PATCH api/eastudents/{eastudent}
    
-8. Delete a eastudent
+6. Delete a eastudent
    ```php
    public function destroy(eastudents $eastudent)
     {
