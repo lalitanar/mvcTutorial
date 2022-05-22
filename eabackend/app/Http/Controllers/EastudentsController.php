@@ -59,12 +59,14 @@ class EastudentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\eastudents  $eastudents
+     * @param  \App\Models\eastudents  $eastudent
      * @return \Illuminate\Http\Response
      */
-    public function show(eastudents $eastudents)
+    public function show(eastudents $eastudent)
     {
-        
+        //Return data
+        //Log::channel('stderr')->info($eastudent);
+        return response()->json($eastudent);
     }
 
     /**
