@@ -46,16 +46,16 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=backend
+   DB_DATABASE=eabackend
    DB_USERNAME=root
    DB_PASSWORD=root
    ```
 3. Create eastudents migration file
-   - `php artisan make:model gdstudents -m`
+   - `php artisan make:model eastudents -m`
    - _Note: -m is to create migration file
 4. Update migration file in database/migrations
    ```php
-      Schema::create('gdstudents', function (Blueprint $table) {
+      Schema::create('eastudents', function (Blueprint $table) {
           $table->id();
           $table->string('firstName');
           $table->string('lastName')->nullable();
@@ -67,9 +67,52 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    ```
 5. Update eastudetns.php in app/Models 
    ```php
-   class gdstudents extends Model
+   class eastudents extends Model
    {
       use HasFactory;
       protected $guarded = [];  //Add this line
    }
+   ```
+   - $fillable = [field1, field2, ...] คือกำหนดชื่อของ column ที่อนุญาตให้เข้าถึง
+   - $guarded = [field1, field2, ...] คือกำหนดชื่อของ column ที่ไม่อนุญาตให้เข้าถึง ถ้าเขียนเป็น array ว่าง **[]** ก็หมายถึงอนุญาติทั้งหมดครับ
+
+6. Migrate schema to MySQL database
+   - `php artisan migrate`
+7. Create Resource file: EastudentsResource.php in app/Http/Reourses
+   - `php artisan make:resource EastudentsResource`
+8. Update EastudentsResource.php in app/Http/Resources
+   ```php
+   public function toArray($request)
+    {
+        return [
+            'id' => $this->id,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'major' => $this->major,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
+        ];
+    }
+   ```
+9. Create Controller file in app/Http/Controllers
+   - `php artisan make:controller GdstudentsController --api --model=gdstudents`
+10. Check current routes' list
+   - `php artisan route:list`
+   ```
+   //Show in Terminal
+   GET|HEAD   / ............................................................... 
+   POST       _ignition/execute-solution ignition.executeSolution › Spatie\Lar…
+   GET|HEAD   _ignition/health-check ignition.healthCheck › Spatie\LaravelIgni…
+   POST       _ignition/update-config ignition.updateConfig › Spatie\LaravelIg…
+   GET|HEAD   api/user ........................................................ 
+   GET|HEAD   sanctum/csrf-cookie . Laravel\Sanctum › CsrfCookieController@show
+   ```
+   ```php
+   //There is a user path due to the code in api.php
+
+   Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+      return $request->user();
+   });
+
    ```
