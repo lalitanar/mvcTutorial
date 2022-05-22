@@ -458,5 +458,11 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
        ```
      - If APIs do not require the authentication, move the Route to be outside the middleware 
 
-
+9. Call user API
+   - Postman: GET METHOD: {{URL}}/user
+   - GET|HEAD api/user
+   - Set Authorization
+     -  Type: Bearer Token
+     -  Token: {{TOKEN}}  
+   - Do not add the test script
 
