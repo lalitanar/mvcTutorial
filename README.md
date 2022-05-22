@@ -35,11 +35,15 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
      - Doc: https://getcomposer.org/doc/00-intro.md#installation-windows 
 3. Install Laravel
    - `composer global require laravel/installer`
-   - `nano  ~/.bash_profile`
-   - Add following line in .bash_profile
-     - `export PATH="$PATH:$HOME/.composer/vendor/bin"`
-     - `source ~/.bash_profile  `
-5. Create Laravel project
+   - Mac: 
+     - `nano  ~/.bash_profile`
+     - Add following line in .bash_profile
+       - `export PATH="$PATH:$HOME/.composer/vendor/bin"`
+       - `source ~/.bash_profile  `
+   - Windows: 
+     - Add path: %USERPROFILE%\AppData\Roaming\Composer\vendor\bin in the windows environment path
+     
+4. Create Laravel project
    - `laravel new eabackend`
    - `cd eabackend`
    - `php artisan serve`
