@@ -1,5 +1,11 @@
 # mvcTutorial
 
+## Laravel Archithecture
+
+![Laravel MVC Architecture](https://miro.medium.com/max/1400/1*Vu2ThQPxr72UEOP0LMo4hA.jpeg)
+
+
+
 ## Backend API: Laravel 9 API
 
 ### Laravel 9 Installation
@@ -268,6 +274,9 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
 
 ## Backend API Authentication (Authentication Sanctum)
 
+### JSON Web Tokens Authentication
+![JWT](https://miro.medium.com/max/2188/1*SSXUQJ1dWjiUrDoKaaiGLA.png)
+
 ### Installation
 **Option**
 - Install sanctum library `composer require laravel/sanctum`
@@ -457,6 +466,8 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
        });
        ```
      - If APIs do not require the authentication, move the Route to be outside the middleware 
+       ## Middleware
+	![Middleware](https://miro.medium.com/max/1358/1*4nJJgPOnlJwD6s-7ygqgTg.jpeg)
 
 9. Call user API
    - Postman: GET METHOD: {{URL}}/user
@@ -467,7 +478,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - Do not add the test script [^1][^2]
    
    
-## Reference
+#### References
 [^1]: Reference1.
 [^2]: Every new line should be prefixed with 2 spaces.  
       This allows you to have a footnote with multiple lines.
