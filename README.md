@@ -370,22 +370,22 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
       }
       ```
     - Postman Test script
-      ```php
-      	if(pm.response.to.have.status(200)){
-    	   var jsonData = JSON.parse(responseBody);
-    	   pm.environment.set("TOKEN", `${jsonData.token_type} ${jsonData.token}`);
-	}
-      ```
+        ```php
+      	   if(pm.response.to.have.status(200)){
+    	      var jsonData = JSON.parse(responseBody);
+    	      pm.environment.set("TOKEN", `${jsonData.token_type} ${jsonData.token}`);
+	   }
+        ```
     - Postman: POST METHOD: {{URL}}/register
     - POST api/register
       - Body
         ```json
-	 {
-            "name" : "John",
-            "email" : "John@mail.com",
-            "password" : "1234",
-            "password_confirmation" : "1234"
-         }
+	    {
+               "name" : "John",
+               "email" : "John@mail.com",
+               "password" : "1234",
+               "password_confirmation" : "1234"
+            }
  	```
     
 6. Create login API
