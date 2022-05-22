@@ -465,8 +465,9 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
      -  Type: Bearer Token
      -  Token: {{TOKEN}}  
    - Do not add the test script [^1][^2]
-   - 
-##Reference
-[^1]: My reference.
+   
+   
+## Reference
+[^1]: Reference1.
 [^2]: Every new line should be prefixed with 2 spaces.  
       This allows you to have a footnote with multiple lines.
