@@ -133,7 +133,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
       - `php artisan route:list`
       - eastudents APIs will be created
       
-### Create eastudents APIs
+### Create eastudents APIs: Create/Read/Update/Delete eastudents
 1. Prepare library
    ```php
    namespace App\Http\Controllers;
@@ -149,23 +149,25 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    public function index()
     {
         // Fetch Data
-        $gdstud = gdstudents:: latest()->get();
+        $eastud = eastudents:: latest()->get();
 
         // Return Message and Data
-        return response()->json(['GDStudents fetch sucessfully', GdstudentsResource::collection($gdstud)]);
+        return response()->json(['EAStudents fetch sucessfully', EastudentsResource::collection($eastud)]);
     }
    ```
-   - Postman: GET METHOD: http://127.0.0.1:8000/api/gdstudents
+   - Postman: GET METHOD: http://127.0.0.1:8000/api/eastudents
+   - GET|HEAD api/eastudents
 3. Show a eastudent
    ```php
-   public function show(gdstudents $gdstudent)
+   public function show(eastudents $eastudent)
     {
         //Return data
-        //Log::channel('stderr')->info($gdstudent);
-        return response()->json($gdstudent);
+        //Log::channel('stderr')->info($eastudent);
+        return response()->json($eastudent);
     }
    ```
-   - Postman: GET METHOD : http://127.0.0.1:8000/api/gdstudents/3
+   - Postman: GET METHOD : http://127.0.0.1:8000/api/eastudents/3
+   - GET|HEAD api/eastudents/{eastudent}
    
 4. Create a eastudent
    ```php
@@ -185,18 +187,18 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
         }
         
         //Created data
-        $gdstd = gdstudents::create([
+        $eastd = eastudents::create([
             'firstName' => $request->firstName,
             'lastName' => $request->lastName,
             'major' => $request->major
         ]);
 
         //Return message and data
-        return response()->json(['gdstudetns created sucessfully', new GdstudentsResource($gdstd)]);
+        return response()->json(['eastudetns created sucessfully', new EastudentsResource($eastd)]);
              
     }
    ```
-   - Postman: POST METHOD: http://127.0.0.1:8000/api/gdstudents
+   - Postman: POST METHOD: http://127.0.0.1:8000/api/eastudents
      - Body
        ```json
        {
@@ -205,6 +207,231 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
          "major" : "EGCO"
        }
        ```
+   - POST api/eastudents
+   
 6. Update a eastudent
-7. Delete a eastudent
+   ```php
+   public function update(Request $request, eastudents $eastudent)
+    {
+        //check validator
+        $validator = Validator::make($request->all(), [
+            'firstName' => 'required|string|max:50',
+            'lastName' => 'string|max:50|nullable',
+            'major' => 'required|string|max:10',
+            'status' => 'numeric|nullable'
+        ]);
+        //If validator fail
+        if($validator->fails()){
+            //Return validator error message
+            return response()->json($validator->errors());
+        }
+        //Set data
+        $eastudent->firstName = $request->firstName;
+        $eastudent->lastName = $request->lastName;
+        $eastudent->major = $request->major;
+        $eastudent->status = $request->status;
+
+        //Update data
+        $eastudent->save();
+
+        //Return message and data
+        return response()->json(['eastudents updated sucessfully', new EastudentsResource($eastudent)]);
+        
+    }
+
+   ```
+   - Postman: PUT METHOD: http://127.0.0.1:8000/api/eastudents/1
+     - Body
+     ```json
+      {
+         "firstName" : "Bob",
+         "lastName" : "Cat",
+         "major" : "EGEE",
+         "status" : 0
+      }
+     ```
+   - PUT|PATCH api/eastudents/{gdstudent}
+   
+8. Delete a eastudent
+   ```php
+   public function destroy(gdstudents $eastudent)
+    {
+        //Delete data
+        $eastudent->delete();
+        //return message
+        return response()->json(['eastudents deleted sucessfully']);
+    }
+   ```
+   - Postman: DELETE METHOD: http://127.0.0.1:8000/api/eastudents/3
+   - DELETE api/gdstudents/{eastudent}
+
+
+## Backend API Authentication (Authentication Sanctum)
+
+### Installation
+**Option**
+- Install sanctum library `composer require laravel/sanctum`
+- Check composer.json
+  ```json
+  "require": {
+        "php": "^8.0.2",
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^9.11",
+        "laravel/sanctum": "^2.14.1", //Sanctum
+        "laravel/tinker": "^2.7"
+    },
+    ```
+
+- Terminal: `php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"`
+  -  Create 2 files for Token
+
+### Set up Sanctum
+1. Update Kernel.pnp in app/Http
+   - Update api section tfollowing the codes below
+   ```php
+   'api' => [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+   ```
+   
+2. Create AuthApiController.php in app/Http/Controllers
+   - `php artisan make:controller AuthApiController`
+
+3. Include library in AuthApiController.php
+   ```php
+   namespace App\Http\Controllers;
+
+   use App\Models\User;
+   use Illuminate\Http\Request;
+   use Auth;    // OR  use Illuminate\Support\Facades\Auth;
+   ```
+  
+4. Create response data
+   ```php
+   public function response($user){
+        $token = $user->createToken(str()->random(40))->plainTextToken;
+        return response()->json([
+            'user' => $user,
+            'token' => $token,
+            'token_type' => 'Bearer'
+        ]);
+    }
+   ```
+   
+5. Create register API
+   ```php
+   public function register(Request $request){
+        $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:4|confirmed'
+        ]);
+
+        $user = User::create([
+            'name' => ucwords($request->name),
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        return $this->response($user);
+    }
+    ```
+    - Postman environment setting: ENV_LARAVEL_API
+      ```json
+      {
+	      "id": "1410a100-eaf8-467e-bec3-897a79750358",
+	      "name": "ENV_LARAVEL_API",
+	      "values": [
+		      {
+			      "key": "URL",
+			      "value": "http://127.0.0.1:8000/api",
+			      "type": "default",
+			      "enabled": true
+		      },
+		      {
+		      	"key": "TOKEN",
+		      	"value": "",
+		      	"type": "default",
+		      	"enabled": true
+		      }
+	      ],
+	      "_postman_variable_scope": "environment",
+	      "_postman_exported_at": "2022-05-22T07:30:42.407Z",
+      	"_postman_exported_using": "Postman/9.19.3"
+      }
+      ```
+    - Postman Headers Presets
+      ```json
+      {
+         "KEY": "X-Requested-With",
+         "VALUE": "XMLHttpRequest"
+      }
+      ```
+    - Postman: POST METHOD: {{URL}}/register
+    - POST api/register
+    
+6. Create login API
+   ```php
+   public function login(Request $request) {
+        $cred = $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|min:4'
+        ]);
+
+        if(!Auth::attempt($cred)) {
+            return response()->json([
+                'message' => 'Unauthorized.'
+            ], 401);
+        }
+
+        //Auth::user() -> Retrieve the currently authenticated user...
+        return $this->response(Auth::user());  
+    }
+   ```
+   - Postman: {{URL}}/login
+   - POST api/login
+   
+7. Create logout API
+   ```php
+   public function logout(){
+        Auth::user()->tokens()->delete();
+
+        return response()->json([
+            'message' => 'You have successfully logged out and token was successfully deleted.'
+        ]);
+    }
+   ```
+   - Postman: {{URL}}/logout
+   - POST api/logout
+
+8. Set the authentication for assign API
+   - Update routes/api.php
+     - Include library
+       ```php
+       use App\Http\Controllers\GdstudentsController;
+       use App\Http\Controllers\AuthApiController;
+       use Illuminate\Http\Request;
+       use Illuminate\Support\Facades\Route;
+       ```
+     - Set routes for register and login API without authentication 
+       ```php
+       Route::post('register', [AuthApiController::class, 'register']);
+       Route::post('login', [AuthApiController::class, 'login']);
+       ```
+     - Set route for user API and eastudent APIs (CRUD) with authentication
+       ```php
+       Route::middleware('auth:sanctum')->group(function(){
+         Route::post('logout', [AuthApiController::class, 'logout']);
+            Route::get('user', function(Request $request){
+         return $request->user();
+         });
+         //eastudents APIs Require Token Authentication
+         Route::resource('gdstudents', GdstudentsController::class);
+       });
+       ```
+     - If APIs do not require the authentication, move the Route to be outside the middleware 
+
+
 
