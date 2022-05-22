@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EastudentsController;
+use App\Http\Controllers\AuthApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('eastudents', EastudentsController::class);
+Route::post('register', [AuthApiController::class, 'register']);
+Route::post('login', [AuthApiController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->group(function(){
+    Route::post('logout', [AuthApiController::class, 'logout']);
+       Route::get('user', function(Request $request){
     return $request->user();
-});
+    });
+    //eastudents APIs Require Token Authentication
+    Route::resource('eastudents', EastudentsController::class);
+  });
+
+//Route::resource('eastudents', EastudentsController::class);
+
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
