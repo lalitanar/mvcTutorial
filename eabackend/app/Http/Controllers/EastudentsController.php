@@ -64,32 +64,7 @@ class EastudentsController extends Controller
      */
     public function show(eastudents $eastudents)
     {
-<<<<<<< HEAD
         
-=======
-        //check validator
-        $validator = Validator::make($request->all(), [
-            'firstName' => 'required|string|max:50',
-            'lastName' => 'required|string|max:50',
-            'major' => 'required|string|max:10',
-        ]);
-        
-        //If validator fail
-        if($validator->fails()){
-            //Return validator error message
-            return response()->json($validator->errors());
-        }
-        
-        //Created data
-        $eastd = eastudents::create([
-            'firstName' => $request->firstName,
-            'lastName' => $request->lastName,
-            'major' => $request->major
-        ]);
-
-        //Return message and data
-        return response()->json(['eastudetns created sucessfully', new EastudentsResource($eastd)]);
->>>>>>> dc24be235395a6b89efd01a49bc3e7e27d5362b7
     }
 
     /**
