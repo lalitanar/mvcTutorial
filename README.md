@@ -250,7 +250,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
          "status" : 0
       }
      ```
-   - PUT|PATCH api/eastudents/{gdstudent}
+   - PUT|PATCH api/eastudents/{eastudent}
    
 8. Delete a eastudent
    ```php
@@ -263,7 +263,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
     }
    ```
    - Postman: DELETE METHOD: http://127.0.0.1:8000/api/eastudents/3
-   - DELETE api/gdstudents/{eastudent}
+   - DELETE api/eastudents/{eastudent}
 
 
 ## Backend API Authentication (Authentication Sanctum)
@@ -369,8 +369,24 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
          "VALUE": "XMLHttpRequest"
       }
       ```
+    - Postman Test script
+      ```js
+      	if(pm.response.to.have.status(200)){
+    	  var jsonData = JSON.parse(responseBody);
+    	  pm.environment.set("TOKEN", \backtick${jsonData.token_type} ${jsonData.token}\backtick);
+	}
+      ```
     - Postman: POST METHOD: {{URL}}/register
     - POST api/register
+      - Body
+        ```json
+	 {
+            "name" : "John",
+            "email" : "John@mail.com",
+            "password" : "1234",
+            "password_confirmation" : "1234"
+         }
+ 	```
     
 6. Create login API
    ```php
@@ -390,8 +406,16 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
         return $this->response(Auth::user());  
     }
    ```
+   - Add Test script
    - Postman: {{URL}}/login
    - POST api/login
+     - Body
+     ```json
+     {
+        "email" : "John@mail.com",
+        "password" : "1234"
+     }
+     ```
    
 7. Create logout API
    ```php
@@ -403,6 +427,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
         ]);
     }
    ```
+   - Add Test script
    - Postman: {{URL}}/logout
    - POST api/logout
 
@@ -410,7 +435,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - Update routes/api.php
      - Include library
        ```php
-       use App\Http\Controllers\GdstudentsController;
+       use App\Http\Controllers\EastudentsController;
        use App\Http\Controllers\AuthApiController;
        use Illuminate\Http\Request;
        use Illuminate\Support\Facades\Route;
@@ -428,7 +453,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
          return $request->user();
          });
          //eastudents APIs Require Token Authentication
-         Route::resource('gdstudents', GdstudentsController::class);
+         Route::resource('eastudents', EastudentsController::class);
        });
        ```
      - If APIs do not require the authentication, move the Route to be outside the middleware 
