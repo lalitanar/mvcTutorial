@@ -106,11 +106,14 @@ class EastudentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\eastudents  $eastudents
+     * @param  \App\Models\eastudents  $eastudent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(eastudents $eastudents)
+    public function destroy(eastudents $eastudent)
     {
-        //
+        //Delete data
+        $eastudent->delete();
+        //return message
+        return response()->json(['eastudents deleted sucessfully']);
     }
 }
