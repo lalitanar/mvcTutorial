@@ -1,12 +1,12 @@
 # mvcTutorial
 
-## Laravel MVC Archithecture (1)[^1]
+## Laravel MVC Archithecture[^1]
 
 ![Laravel MVC Architecture](https://miro.medium.com/max/1400/1*Vu2ThQPxr72UEOP0LMo4hA.jpeg)
 
 
-#### Laravel MVC Archithecture (2)[^2]
-![Laravel MVC Architecture](https://www.netsolutions.com/insights/wp-content/uploads/2022/04/laravel-mvc-architecture.webp)
+#### Laravel Backend/Frontend Archithecture[^2]
+![Laravel Backend Frontend Architecture](https://stackcoder.in/storage/canvas/images/2iQBBsybUPl8WPearpLoQuBlpGyNXxUBMglEsLBq.jpeg)
 
 ## Backend API: Laravel 9 API
 
@@ -487,7 +487,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    
 #### References
 [^1]: Danny Huang, Laravel Controllers 101, https://medium.com/@dannyhuang_75970/learning-laravel-controllers-101-ad28d2bb5569
-[^2]: LALIT SINGLA, Why Laravel Framework is the Best Choice for PHP Web Development, https://www.netsolutions.com/insights/laravel-framework-benefits/
+[^2]: Channaveer Hakari, WUpload File From Frontend Server {GuzzleHttp} To REST API Server In PHP {Laravel}, https://stackcoder.in/posts/upload-file-from-frontend-server-guzzlehttp-to-rest-api-server-in-php-laravel?ref=morioh.com&utm_source=morioh.com
 [^3]: Patiphan Phengpao, สอนติดตั้งและใช้งาน Laravel 9 พร้อมสร้าง CRUD Application | PHP Web Framework, https://youtu.be/l4ee8GKyuLo
 [^4]: ZeekerCode, Laravel 9 REST API crud tutotrial (พื้นฐาน), https://youtu.be/2TmjevB2l_I
 [^5]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4. 
