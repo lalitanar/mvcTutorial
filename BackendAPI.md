@@ -8,7 +8,7 @@
 
 ## Backend API: Laravel 9 API
 
-### Laravel 9 Installation[^6]
+### Laravel 9 Installation[^2]
 Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
 
 1. Install MAMP (MAC) or XAMP (Windows): 
@@ -48,7 +48,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - `cd eabackend`
    - `php artisan serve`
 
-## Backend API (VSCode)[^2]
+## Backend API (VSCode)[^3]
 ### Project configuration and preparation for APIs
 1. Start MySQL Server
 2. MySQL DB configuration
@@ -276,9 +276,9 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - DELETE api/eastudents/{eastudent}
 
 
-## Backend API Authentication (Authentication Sanctum)[^3]
+## Backend API Authentication (Authentication Sanctum)[^4]
 
-### JSON Web Tokens Authentication[^4]
+### JSON Web Tokens Authentication[^5]
 ![JWT](https://miro.medium.com/max/2188/1*SSXUQJ1dWjiUrDoKaaiGLA.png)
 
 ### Installation
@@ -485,11 +485,12 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    
 #### References
 [^1]: Danny Huang, Laravel Controllers 101, https://medium.com/@dannyhuang_75970/learning-laravel-controllers-101-ad28d2bb5569
-[^2]: ZeekerCode, Laravel 9 REST API crud tutotrial (พื้นฐาน), https://youtu.be/2TmjevB2l_I
-[^3]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4. 
-[^4]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
-[^5]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
-[^6]: Patiphan Phengpao, สอนติดตั้งและใช้งาน Laravel 9 พร้อมสร้าง CRUD Application | PHP Web Framework, https://youtu.be/l4ee8GKyuLo
+[^2]: Patiphan Phengpao, สอนติดตั้งและใช้งาน Laravel 9 พร้อมสร้าง CRUD Application | PHP Web Framework, https://youtu.be/l4ee8GKyuLo
+[^3]: ZeekerCode, Laravel 9 REST API crud tutotrial (พื้นฐาน), https://youtu.be/2TmjevB2l_I
+[^4]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4. 
+[^5]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
+[^6]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
+
 
 
       
