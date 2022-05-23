@@ -470,7 +470,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
        });
        ```
      - If APIs do not require the authentication, move the Route to be outside the middleware 
-       ## Middleware[^5]
+       ## Middleware[^6]
 	![Middleware](https://miro.medium.com/max/1400/1*Xta5DnrkSDL3AN_nNLySUw.jpeg)
 	_
 
