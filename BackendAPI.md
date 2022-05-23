@@ -486,7 +486,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
 #### References
 [^1]: Danny Huang, Laravel Controllers 101, https://medium.com/@dannyhuang_75970/learning-laravel-controllers-101-ad28d2bb5569
 [^2]: ZeekerCode, Laravel 9 REST API crud tutotrial (พื้นฐาน), https://youtu.be/2TmjevB2l_I
-[^3]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4
+[^3]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4. 
 [^4]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
 [^5]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
 [^6]: Patiphan Phengpao, สอนติดตั้งและใช้งาน Laravel 9 พร้อมสร้าง CRUD Application | PHP Web Framework, https://youtu.be/l4ee8GKyuLo
