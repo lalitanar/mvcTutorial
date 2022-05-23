@@ -8,7 +8,7 @@
 
 ## Backend API: Laravel 9 API
 
-### Laravel 9 Installation
+### Laravel 9 Installation[^6]
 Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
 
 1. Install MAMP (MAC) or XAMP (Windows): 
