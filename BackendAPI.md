@@ -1,14 +1,16 @@
 # mvcTutorial
 
-## Laravel Archithecture[^1]
+## Laravel MVC Archithecture (1)[^1]
 
 ![Laravel MVC Architecture](https://miro.medium.com/max/1400/1*Vu2ThQPxr72UEOP0LMo4hA.jpeg)
 
 
+#### Laravel MVC Archithecture (2)[^2]
+![Laravel MVC Architecture](https://www.netsolutions.com/insights/wp-content/uploads/2022/04/laravel-mvc-architecture.webp)
 
 ## Backend API: Laravel 9 API
 
-### Laravel 9 Installation[^2]
+### Laravel 9 Installation[^3]
 Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
 
 1. Install MAMP (MAC) or XAMP (Windows): 
@@ -48,7 +50,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - `cd eabackend`
    - `php artisan serve`
 
-## Backend API (VSCode)[^3]
+## Backend API (VSCode)[^4]
 ### Project configuration and preparation for APIs
 1. Start MySQL Server
 2. MySQL DB configuration
@@ -276,9 +278,9 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    - DELETE api/eastudents/{eastudent}
 
 
-## Backend API Authentication (Authentication Sanctum)[^4]
+## Backend API Authentication (Authentication Sanctum)[^5]
 
-### JSON Web Tokens Authentication[^5]
+### JSON Web Tokens Authentication[^6]
 ![JWT](https://miro.medium.com/max/2188/1*SSXUQJ1dWjiUrDoKaaiGLA.png)
 
 ### Installation
@@ -470,7 +472,7 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
        });
        ```
      - If APIs do not require the authentication, move the Route to be outside the middleware 
-       ## Middleware[^6]
+       ## Middleware[^7]
 	![Middleware](https://miro.medium.com/max/1400/1*Xta5DnrkSDL3AN_nNLySUw.jpeg)
 	_
 
@@ -485,11 +487,12 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
    
 #### References
 [^1]: Danny Huang, Laravel Controllers 101, https://medium.com/@dannyhuang_75970/learning-laravel-controllers-101-ad28d2bb5569
-[^2]: Patiphan Phengpao, สอนติดตั้งและใช้งาน Laravel 9 พร้อมสร้าง CRUD Application | PHP Web Framework, https://youtu.be/l4ee8GKyuLo
-[^3]: ZeekerCode, Laravel 9 REST API crud tutotrial (พื้นฐาน), https://youtu.be/2TmjevB2l_I
-[^4]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4. 
-[^5]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
-[^6]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
+[^2]: LALIT SINGLA, Why Laravel Framework is the Best Choice for PHP Web Development, https://www.netsolutions.com/insights/laravel-framework-benefits/
+[^3]: Patiphan Phengpao, สอนติดตั้งและใช้งาน Laravel 9 พร้อมสร้าง CRUD Application | PHP Web Framework, https://youtu.be/l4ee8GKyuLo
+[^4]: ZeekerCode, Laravel 9 REST API crud tutotrial (พื้นฐาน), https://youtu.be/2TmjevB2l_I
+[^5]: Aldhi Xar, REST API Authentication with Laravel Sanctum Laravel 9, https://youtu.be/_twnXKs-My4. 
+[^6]: Poppy Cooke, Understanding JSON Web Tokens (JWT) in 5 Easy Steps, https://morioh.com/p/63009714b79a  
+[^7]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
 
 
 
