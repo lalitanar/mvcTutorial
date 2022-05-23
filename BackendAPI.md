@@ -491,4 +491,5 @@ Doc: https://laravel.com/docs/9.x/installation#installation-via-composer
 [^5]: Devamplify Hub: https://medium.com/@devamplify/deep-dive-into-middlewares-in-laravel-a41921ffa42
 [^6]: Patiphan Phengpao, สอนติดตั้งและใช้งาน Laravel 9 พร้อมสร้าง CRUD Application | PHP Web Framework, https://youtu.be/l4ee8GKyuLo
 
+
       
