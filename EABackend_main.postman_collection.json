@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "ba1cfe51-2619-4027-ae8b-6fbe40c027a0",
+		"name": "EABackend_main",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2345572"
+	},
+	"item": [
+		{
+			"name": "Show all eastudents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eastudents",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show a eastudent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eastudents/3",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a eastudent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eastudents/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert new eastudent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\" : \"Bob4\",\n  \"lastName\" : \"Cat\",\n  \"major\" : \"EGCO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/eastudents",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a eastudent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"firstName\" : \"Bobedit3\",\n    \"lastName\" : \"Cat\",\n    \"major\" : \"EGEE\",\n    \"status\" : 0\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/eastudents/3",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

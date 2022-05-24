@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "80da1931-56ce-4bda-ba68-54897f9d58dd",
+		"name": "EAAuth_main",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2345572"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(pm.response.to.have.status(200)){",
+							"      var jsonData = JSON.parse(responseBody);",
+							"      pm.environment.set(\"TOKEN\", `${jsonData.token_type} ${jsonData.token}`);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n       \"name\" : \"John\",\n       \"email\" : \"John@mail.com\",\n       \"password\" : \"1234\",\n       \"password_confirmation\" : \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(pm.response.to.have.status(200)){",
+							"      var jsonData = JSON.parse(responseBody);",
+							"      pm.environment.set(\"TOKEN\", `${jsonData.token_type} ${jsonData.token}`);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"email\" : \"John@mail.com\",\n   \"password\" : \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(pm.response.to.have.status(200)){",
+							"      var jsonData = JSON.parse(responseBody);",
+							"      pm.environment.set(\"TOKEN\", `${jsonData.token_type} ${jsonData.token}`);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/logout",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth_Show all eastudents",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eastudents",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth_Show a eastudent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eastudents/3",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth_Show student major",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eastudents/major/EGEE",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents",
+						"major",
+						"EGEE"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth_Show student faculty",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eastudents/faculty/EG",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eastudents",
+						"faculty",
+						"EG"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
