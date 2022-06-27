@@ -20,20 +20,99 @@
    - 
 
 
+##Setup project path (VRouter)
 
+1. Edit main.js
+    ```
+    import { createApp } from 'vue'
+    import App from './App.vue'
+    import router from './router'
+    import 'bootstrap'
 
-main.js
+    createApp(App).use(router).mount('#app')
+    ```
+    
+2. Create router folder and create index.js. (router/index.js)
+    ```
+    import { createRouter, createWebHistory } from 'vue-router'
+    import HelloWorld from '../components/HelloWorld.vue'
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import 'bootstrap'
+    const routes = [
+        {
+            path: '/',
+            redirect: '/hello'
+        }, 
+        {
+            path: '/hello',
+            name: 'HelloWorld'                                                          ,
+            component: HelloWorld
+        }
+        ]
 
-createApp(App).use(router).mount('#app')
+    const router = createRouter({
+        history: createWebHistory(),
+        routes
+    })
+    export default router 
+    ```
+    
+3. Edit App.vue
+    ```
+    <template>
+        <div id='app'>
+            <div id='nav'>
+                <router-link to="/hello">Hello World</router-link>  |  
+            </div>
+            <router-view/>
+        </div>
+    </template>
+    <script>
+    export default {
+        name: 'App',
+        methods : {
+        }
+    }
+    </script>
+    <style>
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 60px;
+    }
+    </style>
+    ```
 
+4. Edit Hello.vue
+    ```
+    <template>
+        <div>
+            <img alt="Vue logo" src="../assets/logo.png" />
+            <h1>{{ msg }}</h1>
+            <button @click="count++">count is: {{ count }}</button>
+            <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+        </div>
+    </template>
 
+    <script>
+    export default {
+        name: 'HelloWorld',
+        data() {
+            return {
+                msg: 'Hello World',
+                count: 0
+            }
+        }
+    }
+    </script>
 
-router/index.js
-import { createRouter, createWebHistory } from 'vue-router'
+    <style scoped>
+    a {
+        color: #42b983;
+    }
+    </style>
 
-const routerHistory = createWebHistory()
+    ```
+
