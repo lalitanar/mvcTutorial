@@ -2,7 +2,7 @@
 # VUE Frontend
 
 ## Create a vue project
-** At terminal **
+**At terminal **
 1. Create Vue project
     - `npm create vite@latest eafrontend`
     - `cd eafrontend`
