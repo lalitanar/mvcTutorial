@@ -1,8 +1,8 @@
 
-#VUE Frontend
+# VUE Frontend
 
-##Create a vue project
-**At terminal **
+## Create a vue project
+** At terminal **
 1. Create Vue project
     - `npm create vite@latest eafrontend`
     - `cd eafrontend`
@@ -20,7 +20,7 @@
    - 
 
 
-##Setup project path (VRouter)
+## Setup project path (VRouter)
 
 1. Edit main.js
     ```
