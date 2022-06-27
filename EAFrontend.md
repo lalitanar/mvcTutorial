@@ -23,7 +23,7 @@
 ## Setup project path (VRouter)
 
 1. Edit main.js
-    ```
+    ```vue
     import { createApp } from 'vue'
     import App from './App.vue'
     import router from './router'
@@ -34,7 +34,7 @@
     ```
     
 2. Create router folder and create index.js. (router/index.js)
-    ```
+    ```vue
     import { createRouter, createWebHistory } from 'vue-router'
     import HelloWorld from '../components/HelloWorld.vue'
 
@@ -58,7 +58,7 @@
     ```
     
 3. Edit App.vue
-    ```
+    ```vue
     <template>
         <div id='app'>
             <div id='nav'>
@@ -87,7 +87,7 @@
     ```
 
 4. Edit Hello.vue
-    ```
+    ```vue
     <template>
         <div>
             <img alt="Vue logo" src="../assets/logo.png" />
