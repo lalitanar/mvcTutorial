@@ -28,6 +28,7 @@
     import App from './App.vue'
     import router from './router'
     import 'bootstrap'
+    import 'bootstrap/dist/css/bootstrap.min.css'
 
     createApp(App).use(router).mount('#app')
     ```
@@ -115,4 +116,93 @@
     </style>
 
     ```
+## Add student list page
+1. Create views folder and create students.vue
+    ```vue
+    <template>
+    <div class="container">
+        <h1>List of Users</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..." v-model="search">
+                <span class="input-group-btn">
+                  &nbsp;&nbsp;<button class="btn btn-primary" type="button">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    Search
+                  </button>
+                </span>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div>
+        <br>
+        <table class="table table-stripped table-borderes">
+            <thead>
+                <tr>
+                <th class="center">First Name</th>
+                <th class="center">Last Name</th>
+                <th class="center">Major</th>
+                <th class="center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="astudent in filterStudents" v-bind:key="astudent.id">
+                    <td class="text-left">{{ astudent.firstName }}</td>
+                    <td class="text-left">{{ astudent.lastName }}</td>
+                    <td class="text-left">{{ astudent.major }}</td>
+                    <td class="text-left">
+                        <button class="btn btn-xs btn-warning">Edit</button>&nbsp;
+                        <button class="btn btn-xs btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm" ><span class="glyphicon glyphicon-trash">Delete</span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <router-link to="/addstudent">
+            <button class="btn btn-large btn-block btn-success full-width">Add Student</button>
+        </router-link>
+        <br>
+    </div>
+    </template>
 
+    <script>
+    import axios from 'axios'
+    import $ from 'jquery'
+    export default {
+      name: 'Students',
+      props: {
+
+      },
+      data() {
+        return {
+            Students: [],
+            search: '',
+            sid: ''
+        }
+      },
+        computed : {
+            filterStudents: function(){
+                return this.Students.filter((student)=>{
+                    return student.firstName.match(this.search)
+                })
+            }
+        },
+        mounted () {
+            axios.get('http://127.0.0.1:8000/api/eastudents')
+            .then((response)=>{
+                console.log(response.data)
+                this.Students = response.data[1]
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        },
+        methods:{
+
+        }
+      }
+
+    </script>
+    ```
+3. 
