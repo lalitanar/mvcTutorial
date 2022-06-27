@@ -207,7 +207,7 @@
     </script>
     ```
 2.  _ADD_ a new student
-    2.1 Create AddStudent.vue
+    - Create AddStudent.vue
     ```vue
     <template>
       <div class="container">
@@ -292,7 +292,7 @@
 
     </style>
     ```
-    2.2 Update routers/index.js
+    - Update routers/index.js
     ```js
     import { createRouter, createWebHistory } from 'vue-router'
     // import Home from '../views/Home.vue'
@@ -338,7 +338,7 @@
     
     
 3.  _DELETE_ student
-    3.1 Edit Student.vue
+    - Edit Student.vue
     ```vue
     <template>
         <div class="container">
@@ -465,7 +465,7 @@
     </script>
     ```
 4.  _EDIT_ a student
-    4.1 Create UpdateStudent.vue (views/UpdateStudent.vue)
+    - Create UpdateStudent.vue (views/UpdateStudent.vue)
     ```vue
     <template>
       <div class="container">
@@ -560,7 +560,7 @@
     }
     </style>
     ```
-    4.2 Update index.js
+    - Update index.js
     ```js
     import { createRouter, createWebHistory } from 'vue-router'
     // import Home from '../views/Home.vue'
@@ -609,7 +609,7 @@
 
       export default router
     ```
-    4.3 Update Students.vue
+    - Update Students.vue
     ```vue
     <template>
         <div class="container">
@@ -738,4 +738,4 @@
 
     </script>
     ```
-7.
+
