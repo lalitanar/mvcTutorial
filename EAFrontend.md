@@ -23,7 +23,7 @@
 ## Setup project path (VRouter)
 
 1. Edit main.js
-    ```vue
+    ```js
     import { createApp } from 'vue'
     import App from './App.vue'
     import router from './router'
@@ -34,7 +34,7 @@
     ```
     
 2. Create router folder and create index.js. (router/index.js)
-    ```vue
+    ```js
     import { createRouter, createWebHistory } from 'vue-router'
     import HelloWorld from '../components/HelloWorld.vue'
 
