@@ -830,7 +830,7 @@
     ```
 
 ## Practice: Create the student list page that filter according to selected major
-
+[EAFrontend Practice](https://github.com/lalitanar/mvcTutorial/blob/3d8c5cab77af05dff46502b00ce34a9a328a1c6e/practice/frontend_practice.pdf)
 
 
 # Vue with Authentication
