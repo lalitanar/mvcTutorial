@@ -2,9 +2,9 @@
 # VUE Frontend
 
 
-![Vue Life Cycle](https://dltqhkoxgn1gx.cloudfront.net/img/posts/how-to-use-lifecycle-hooks-in-vue3-1.png)
 
-![MVVM: Model View View Model Architecture](https://content.altexsoft.com/media/2019/09/word-image-15.png)
+
+
 
 ![Vue Architectture](https://sublimedatasys.com/wp-content/uploads/2018/06/vue-1.png))
 
@@ -91,14 +91,16 @@
     - `cd eafrontend`
     - Install all required packages for Vue project (only for the first time)
       - `npm install`
-    - Run Vue porject
-      - `npm run dev`
-
-2. Install additional packages
-   - Install Bootstrap Jquery and Axios
+    - Install Bootstrap Jquery and Axios
       - `npm install axios bootstrap` 
    - Install Vue-Router
       - `npm install vue-router@latest`
+2. Run Vue porject
+    - `npm run dev`
+
+
+**Vue Life Cylce**
+![Vue Life Cycle](https://dltqhkoxgn1gx.cloudfront.net/img/posts/how-to-use-lifecycle-hooks-in-vue3-1.png)
 
 ## Setup project path (VRouter)
 
