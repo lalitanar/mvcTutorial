@@ -1,24 +1,48 @@
 
 # VUE Frontend
 
+## Prepare backend API
+1. Update `VerifyCsrfToken.php` (app/Http/VerifyCsrfToken.php)
+    ```php
+    <?php
+    namespace App\Http\Middleware;
+    use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+    class VerifyCsrfToken extends Middleware
+    {
+        /**
+         * The URIs that should be excluded from CSRF verification.
+         *
+         * @var array<int, string>
+         */
+        protected $except = [
+            //***** Add the backend API URL: *****//
+            'http://127.0.0.1:8000/api/*',
+        ];
+    }
+    ```
+    
+2. Start Apache web server and mySQL server on MAMP/XAMP
+3. Run backend API on vscode
+    - cd eabackend
+    - php artisan serve
+
 ## Create a vue project
-**At terminal **
+> **At terminal in the VSCode**
+ 
 1. Create Vue project
     - `npm create vite@latest eafrontend`
     - `cd eafrontend`
-    - Install all required packages for Vue project
+    - Install all required packages for Vue project (only for the first time)
       - `npm install`
     - Run Vue porject
       - `npm run dev`
 
-
-2. Install addditional packages
+2. Install additional packages
    - Install Bootstrap Jquery and Axios
-      - `npm install axios bootstrap jquery popper.js` 
+      - `npm install axios bootstrap` 
    - Install Vue-Router
       - `npm install vue-router@latest`
-   - 
-
 
 ## Setup project path (VRouter)
 
@@ -29,8 +53,9 @@
     import router from './router'
     import 'bootstrap'
     import 'bootstrap/dist/css/bootstrap.min.css'
-
-    createApp(App).use(router).mount('#app')
+    import vueCookies from 'vue-cookies'
+    
+    createApp(App).use(router).use(vueCookies).mount('#app')
     ```
     
 2. Create router folder and create index.js. (router/index.js)
@@ -44,11 +69,15 @@
             redirect: '/hello'
         }, 
         {
+            path: '/:catchAll(.*)',
+            redirect: '/signin'
+        },
+        {
             path: '/hello',
             name: 'HelloWorld'                                                          ,
             component: HelloWorld
         }
-        ]
+    ]
 
     const router = createRouter({
         history: createWebHistory(),
@@ -62,8 +91,9 @@
     <template>
         <div id='app'>
             <div id='nav'>
-                <router-link to="/hello">Hello World</router-link>  |  
+                <router-link to="/hello"><button type="button" class="btn btn-outline-success">Hello World</button></router-link>  |  
             </div>
+            <br>
             <router-view/>
         </div>
     </template>
@@ -80,13 +110,13 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
-        color: #2c3e50;
+        color: #227e63;
         margin-top: 60px;
     }
     </style>
     ```
 
-4. Edit Hello.vue
+4. Edit HelloWorld.vue
     ```vue
     <template>
         <div>
@@ -116,8 +146,9 @@
     </style>
 
     ```
+    
 ## READ/ADD/DELETE/UPDATE student list page
-1. Create views folder and create students.vue
+1. Create `views` folder and create `Students.vue` (views/Students.vue)
 2. _READ_ list of students 
     ```vue
     <template>
@@ -139,7 +170,7 @@
               </div><!-- /.row -->
             </div>
             <br>
-            <table class="table table-stripped table-borderes">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                     <th class="center">First Name</th>
@@ -155,7 +186,7 @@
                         <td class="text-left">{{ astudent.major }}</td>
                         <td class="text-left">
                             <button class="btn btn-xs btn-warning">Edit</button>&nbsp;
-                            <button class="btn btn-xs btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm" ><span class="glyphicon glyphicon-trash">Delete</span></button>
+                            <button class="btn btn-xs btn-danger" data-toggle="modal" data-bs-target="#exampleModal" >Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -169,7 +200,6 @@
 
     <script>
     import axios from 'axios'
-    import $ from 'jquery'
     export default {
       name: 'Students',
       props: {
@@ -229,9 +259,10 @@
             </div>
           </div>
           <br>
-          <button type="submit" class="btn btn-large btn-block btn-primary full-width" @click="addToAPI">Submit</button>&nbsp;
+          <button type="submit" class="btn btn-primary full-width" @click="addToAPI">Add Student</button>
+          &nbsp;
           <router-link to="/">
-          <button class="btn btn-large btn-block btn-success full-width">Go to Student List Page</button>  
+            <button class="bbtn btn-warning full-width">Go to Student List Page</button>  
           </router-link>  
         </form>
       </div>
@@ -295,37 +326,40 @@
     - Update routers/index.js
     ```js
     import { createRouter, createWebHistory } from 'vue-router'
-    // import Home from '../views/Home.vue'
+    //import Major from '../views/Major.vue'
     import HelloWorld from '../components/HelloWorld.vue'
     import Students from '../views/Students.vue'
     import AddStudent from '../views/AddStudent.vue'
 
     const routes = [
         {
-          path: '/',
-          redirect: '/students'
+            path: '/',
+            redirect: '/students'
         }, 
-
+        {
+            path: '/:catchAll(.*)',
+            redirect: '/signin'
+         },
         // {
-        //   path: '/home',
-        //   name: 'Home',
-        //   component: Home
+        //   path: '/major',
+        //   name: 'Major',
+        //   component: Major
         // },
         {
-          path: '/students',
-          name: 'Students',
-          component: Students
+            path: '/students',
+            name: 'Students',
+            component: Students
         },
         {
             path: '/addstudent',
             name: 'AddStudent',
             component: AddStudent
-          },
+        },
         {
             path: '/hello',
             name: 'HelloWorld',
             component: HelloWorld
-          }
+        }
       ]
 
       const router = createRouter({
@@ -376,7 +410,7 @@
                         <td class="text-left">
                             <button class="btn btn-xs btn-warning">Edit</button>&nbsp;
                             <router-link to="/">
-                              <button class="btn btn-xs btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="DELETE(astudent.id)"><span class="glyphicon glyphicon-trash">Delete</span></button>
+                              <button class="btn btn-xs btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="DELETE(astudent.id)">Delete</button>
                             </router-link>
                         </td>
                     </tr>
