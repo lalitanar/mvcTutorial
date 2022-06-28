@@ -89,7 +89,7 @@
     - `npm run dev`
 
 
-### Vue Life Cycle**
+### Vue Life Cycle
 ![Vue Life Cycle](https://dltqhkoxgn1gx.cloudfront.net/img/posts/how-to-use-lifecycle-hooks-in-vue3-1.png)
 
 ## Setup project path (VRouter)
@@ -133,7 +133,7 @@
     export default router 
     ```
     
-3. Edit App.vue
+3. Edit `App.vue`
     ```vue
     <template>
         <div id='app'>
@@ -163,7 +163,7 @@
     </style>
     ```
 
-4. Edit HelloWorld.vue
+4. Edit `HelloWorld.vue`
     ```vue
     <template>
         <div>
@@ -194,7 +194,7 @@
 
     ```
     
-### MVVM Paragigm
+### MVVM Paradigm
 ![MVVM paradigm 1](https://giselamedina1.gitbooks.io/vue-js/content/assets/import1.png)
 
 ![MVVM paradigm 2](https://giselamedina1.gitbooks.io/vue-js/content/assets/import0.png)
@@ -290,7 +290,7 @@
     </script>
     ```
 2.  _ADD_ a new student
-    - Create AddStudent.vue
+    - Create `AddStudent.vue`
     ```vue
     <template>
       <div class="container">
@@ -376,7 +376,7 @@
 
     </style>
     ```
-    - Update routers/index.js
+    - Update `index.js` (routers/index.js)
     ```js
     import { createRouter, createWebHistory } from 'vue-router'
     //import Major from '../views/Major.vue'
@@ -425,7 +425,7 @@
     
     
 3.  _DELETE_ student
-    - Edit Student.vue
+    - Edit `Students.vue`
     ```vue
     <template>
         <div class="container">
@@ -552,7 +552,7 @@
     </script>
     ```
 4.  _EDIT_ a student
-    - Create UpdateStudent.vue (views/UpdateStudent.vue)
+    - Create `UpdateStudent.vue` (views/UpdateStudent.vue)
     ```vue
     <template>
       <div class="container">
@@ -647,7 +647,7 @@
     }
     </style>
     ```
-    - Update index.js
+    - Update `index.js` (routers/index.js)
     ```js
     import { createRouter, createWebHistory } from 'vue-router'
     // import Home from '../views/Home.vue'
@@ -699,7 +699,7 @@
 
       export default router
     ```
-    - Update Students.vue
+    - Update `Students.vue`
     ```vue
     <template>
         <div class="container">
@@ -882,7 +882,7 @@
 ### Cookie Preparation
 1. Install packake `vue-cookies` under the vue project
     - `npm install vue-cookies`
-2. Edit main.js
+2. Edit `main.js`
     ```js
     import { createApp } from 'vue'
     import App from './App.vue'
@@ -981,7 +981,7 @@
     </style>
     ```
     
-2. Edit index.js (routers/index.js)
+2. Edit `index.js` (routers/index.js)
     ```js
     import { createRouter, createWebHistory } from 'vue-router'
     // import Major from '../views/Major.vue'
