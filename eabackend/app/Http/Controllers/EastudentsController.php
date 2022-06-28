@@ -116,4 +116,46 @@ class EastudentsController extends Controller
         //return message
         return response()->json(['eastudents deleted sucessfully']);
     }
+
+    public function major($major)
+    {
+        //check validator
+        Log::channel('stderr')->info($major);
+        $validator = Validator::make(['major'=> $major], [
+            'major' => 'required|string|size:4'
+        ]);
+        
+        //If validator fail
+        if($validator->fails()){
+            //Return validator error message
+            return response()->json($validator->errors());
+        }
+
+        //Query major
+        Log::channel('stderr')->info($major);
+        $eastud = eastudents::where("major", $major)->get();
+        //return message
+        return response()->json(['eastudents search for '.$major.' major', EastudentsResource::collection($eastud)]);
+    }
+
+    public function faculty($faculty)
+    {
+        //check validator
+        $validator = Validator::make(['major'=> $faculty], [
+            'major' => 'required|string|size:2'
+        ]);
+        
+        //If validator fail
+        if($validator->fails()){
+            //Return validator error message
+            return response()->json($validator->errors());
+        }
+
+        //Query major
+        //Log::channel('stderr')->info($$faculty);
+        $eastud = eastudents::where("major", "like", $faculty."%")->get();
+        //return message
+        return response()->json(['eastudents search for '.$faculty.' faculty', EastudentsResource::collection($eastud)]);
+    }
+
 }

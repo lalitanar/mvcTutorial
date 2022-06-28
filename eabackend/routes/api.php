@@ -21,12 +21,25 @@ Route::post('login', [AuthApiController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('logout', [AuthApiController::class, 'logout']);
-       Route::get('user', function(Request $request){
-    return $request->user();
+    Route::get('user', function(Request $request){
+      return $request->user();
     });
+
     //eastudents APIs Require Token Authentication
     Route::resource('eastudents', EastudentsController::class);
-  });
+  
+}); 
+
+    //eastudents APIs Require Token Authentication
+    //Route::resource('eastudents', EastudentsController::class);
+    
+    //Practice
+    Route::get('eastudents/major/{major}', [EastudentsController::class, 'major']);
+    Route::get('eastudents/faculty/{faculty}', [EastudentsController::class, 'faculty']);
+
+
+
+
 
 //Route::resource('eastudents', EastudentsController::class);
 
