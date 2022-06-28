@@ -27,6 +27,9 @@ Route::middleware('auth:sanctum')->group(function(){
 
     //eastudents APIs Require Token Authentication
     Route::resource('eastudents', EastudentsController::class);
+    Route::get('eastudents/major/{major}', [EastudentsController::class, 'major']);
+    Route::get('eastudents/faculty/{faculty}', [EastudentsController::class, 'faculty']);
+
   
 }); 
 
@@ -34,8 +37,8 @@ Route::middleware('auth:sanctum')->group(function(){
     //Route::resource('eastudents', EastudentsController::class);
     
     //Practice
-    Route::get('eastudents/major/{major}', [EastudentsController::class, 'major']);
-    Route::get('eastudents/faculty/{faculty}', [EastudentsController::class, 'faculty']);
+    //Route::get('eastudents/major/{major}', [EastudentsController::class, 'major']);
+    //Route::get('eastudents/faculty/{faculty}', [EastudentsController::class, 'faculty']);
 
 
 

@@ -4,7 +4,7 @@
   <div id='app'>
     <div id='nav'>
          | <router-link to="/students"><button type="button" class="btn btn-outline-success">List of Students</button></router-link> | 
-        <!-- <router-link to="/major">Major</router-link> |   -->
+        <router-link to="/major"><button type="button" class="btn btn-outline-success">Major</button></router-link>  |  
         <router-link to="/hello"><button type="button" class="btn btn-outline-success">Hello World</button></router-link>  |  
          <button type="button" class="btn btn-outline-success" @click="logout()">Logout</button> | 
     </div>

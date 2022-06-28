@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import Major from '../views/Major.vue'
+import Major from '../views/Major.vue'
 import HelloWorld from '../components/HelloWorld.vue'
 import Students from '../views/Students.vue'
 import AddStudent from '../views/AddStudent.vue'
@@ -16,11 +16,11 @@ const routes = [
       path: '/:catchAll(.*)',
       redirect: '/signin'
     },
-    // {
-    //   path: '/major',
-    //   name: 'Major',
-    //   component: Major
-    // },
+    {
+      path: '/major',
+      name: 'Major',
+      component: Major
+    },
     {
       path: '/students',
       name: 'Students',
