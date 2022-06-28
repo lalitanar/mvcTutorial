@@ -6,15 +6,13 @@
 
 ![MVVM: Model View View Model Architecture](https://content.altexsoft.com/media/2019/09/word-image-15.png)
 
-![Vue Architectture]([https://content.altexsoft.com/media/2019/09/word-image-15.png](https://sublimedatasys.com/wp-content/uploads/2018/06/vue-1.png))
+![Vue Architectture](https://sublimedatasys.com/wp-content/uploads/2018/06/vue-1.png))
 
 ![MVVM paradigm 1](https://giselamedina1.gitbooks.io/vue-js/content/assets/import1.png)
 
 ![MVVM paradigm 2](https://giselamedina1.gitbooks.io/vue-js/content/assets/import0.png)
 
-![VueX](https://giselamedina1.gitbooks.io/vue-js/content/assets/importA-11.png)
 
-![VueX Comparison](https://www.sinocalife.com/wp-content/uploads/2020/09/with-or-without-vuex.png)
 
 ## Backend API Preparation
 1. Update `VerifyCsrfToken.php` (app/Http/VerifyCsrfToken.php)
@@ -1659,3 +1657,9 @@
     }
     </style>
     ```
+    
+## VueX
+
+![VueX](https://giselamedina1.gitbooks.io/vue-js/content/assets/importA-11.png)
+
+![VueX Comparison](https://www.sinocalife.com/wp-content/uploads/2020/09/with-or-without-vuex.png)
