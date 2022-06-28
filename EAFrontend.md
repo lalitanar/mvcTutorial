@@ -73,12 +73,32 @@
     - Check routes : php artisan route:list
     - php artisan serve
 
+## Install Node.js
+
 ## Create a vue project
 > **At terminal in the VSCode**
  
+1. To install vue commandline
+    - sudo npm install -g @vue/cli 
+    - (windows run as admin.)
+
+2. To upgrade vue commandline
+    - sudo npm update -g @vue/cli
+    - (windows run as admin.)
+
+>_Vite_
+>Vite (pronounced like “veet”) is a new Vue 3 build tool 
+>it is a module bundler that will bundle your entire Vue project on startup, hot reloads, and compilation. 
+
+
+NOTE: For production using this command: npm run build
+
+http://localhost:3000
+ 
 1. Create Vue project
-    - `npm create vite@latest eafrontend`
-    - `cd eafrontend`
+    - `npm create vite@latest <project-name>` (project name must be lowercase)
+    - Ex. `npm create vite@latest eafrontend`
+    - Change directory `cd eafrontend`
     - Install all required packages for Vue project (only for the first time)
       - `npm install`
     - Install Bootstrap Jquery and Axios
