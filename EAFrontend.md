@@ -1,17 +1,7 @@
 
 # VUE Frontend
 
-
-
-
-
-
 ![Vue Architectture](https://sublimedatasys.com/wp-content/uploads/2018/06/vue-1.png))
-
-![MVVM paradigm 1](https://giselamedina1.gitbooks.io/vue-js/content/assets/import1.png)
-
-![MVVM paradigm 2](https://giselamedina1.gitbooks.io/vue-js/content/assets/import0.png)
-
 
 
 ## Backend API Preparation
@@ -99,7 +89,7 @@
     - `npm run dev`
 
 
-**Vue Life Cylce**
+### Vue Life Cycle**
 ![Vue Life Cycle](https://dltqhkoxgn1gx.cloudfront.net/img/posts/how-to-use-lifecycle-hooks-in-vue3-1.png)
 
 ## Setup project path (VRouter)
@@ -203,6 +193,12 @@
     </style>
 
     ```
+    
+### MVVM Paragigm
+![MVVM paradigm 1](https://giselamedina1.gitbooks.io/vue-js/content/assets/import1.png)
+
+![MVVM paradigm 2](https://giselamedina1.gitbooks.io/vue-js/content/assets/import0.png)
+    
     
 ## READ/ADD/DELETE/UPDATE student list page
 1. Create `views` folder and create `Students.vue` (views/Students.vue)
